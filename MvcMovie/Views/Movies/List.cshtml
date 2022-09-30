@@ -6,17 +6,22 @@
 
 <table>
     <tr>
-        <th>Title</th>
-        <th>ReleaseDate</th>
-        <th>Genre</th>
+        <th>@(Html.DisplayNameFor(model => model.Title))</th>
+        <th>@(Html.DisplayNameFor(model => model.ReleaseDate))</th>
+        <th>@(Html.DisplayNameFor(model => model.Genre))</th>
     </tr>
-    @foreach (Movie movie in Model)
+    @foreach (var item in Model)
     {
         <tr>
-            <td>@movie.Title</td>
-            <td>@movie.ReleaseDate</td>
-            <td>@movie.Genre</td>
+            <td>
+                <a asp-controller="Movies" asp-action="Details"
+               asp-route-id="@item.MovieID">@(Html.DisplayFor(modelItem => item.Title))</a>
+            </td>
+            <td>@(Html.DisplayFor(modelItem => item.ReleaseDate))</td>
+            <td>@(Html.DisplayFor(modelItem => item.Genre))</td>
         </tr>
     }
+
+
 
 </table>

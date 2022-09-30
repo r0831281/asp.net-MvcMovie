@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 
 namespace MvcMovie.Controllers
@@ -18,6 +19,15 @@ namespace MvcMovie.Controllers
 
             return View(movies.ToList());
         }
+        public IActionResult Details(int id)
+        {
+            var movie = _context.Movies
+                            .Include(m => m.Rating)
+                            .SingleOrDefault(m => m.MovieID == id);
+
+            return View(movie);
+        }
+
 
     }
 }

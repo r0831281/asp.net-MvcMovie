@@ -11,11 +11,11 @@ namespace MvcMovie.Data
             context.Database.EnsureCreated();
 
             // Look for any movies.
-/*            if (context.Movies.Any())
+               if (context.Movies.Any())
             {
                 return;   // DB has been seeded
             }
-            */
+     
             context.Ratings.AddRange(
                 new Rating { Code = "G", Name = "General" },
                 new Rating { Code = "PG", Name = "Parental Guidance" },
