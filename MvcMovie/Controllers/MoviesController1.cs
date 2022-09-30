@@ -12,10 +12,12 @@ namespace MvcMovie.Controllers
             _context = context;
         }
 
-
         public IActionResult List()
         {
-            return View();
+            var movies = _context.Movies.OrderBy(m => m.Title);
+
+            return View(movies.ToList());
         }
+
     }
 }

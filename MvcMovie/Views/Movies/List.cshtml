@@ -1,0 +1,22 @@
+﻿@model IEnumerable<MvcMovie.Models.Movie>
+
+@{
+    ViewData["Title"] = "All Movies";
+}
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>ReleaseDate</th>
+        <th>Genre</th>
+    </tr>
+    @foreach (Movie movie in Model)
+    {
+        <tr>
+            <td>@movie.Title</td>
+            <td>@movie.ReleaseDate</td>
+            <td>@movie.Genre</td>
+        </tr>
+    }
+
+</table>
